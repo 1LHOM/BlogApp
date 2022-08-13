@@ -15,4 +15,43 @@
             Share this post
         </a>
     </p>
+
+    <h2>Similar posts</h2>
+    {% for post in similar_posts %}
+        <p><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+    {% empty %}
+        There are no similar posts yet.
+    {% endfor %}
+    <div class="comments-container">
+
+    <div class="add-comment">
+        <h2>Add a new comment</h2>
+        <form method="post">
+            {{ comment_form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Add comment"></p>
+        </form>
+    </div>
+        <hr>
+    <div class="comments-counter">
+    {% with comments.count as total_comments %}
+        <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
+    {% endwith %}</div>
+    <div class="comments-block">
+        {% for comment in comments %}
+            <div class="comment">
+                <div class="upper-line">
+                    <p class="info">Comment {{ forloop.counter }}: by</p>
+                    <p class="name blue bold">{{ comment.name }}</p>
+                    <p>{{ comment.created }}</p>
+                </div>
+                {{ comment.body|linebreaks }}
+            </div>
+            <hr>
+        {% empty %}
+            <p>There are no comments yet.</p>
+            <hr>
+        {% endfor %}
+    </div>
+    </div>
 {% endblock %}

@@ -31,16 +31,16 @@ h2 {
 
 #content { 
     float:left;
-    width:60%;
+    width:70%;
     padding:0 0 0 30px;
 }
 
 #sidebar { 
     float:right;
-    width:30%;
+    width:20%;
     padding:10px;
     background:#efefef; 
-    height:100%;
+    height: 100%;
 }
 
 p.date { 
@@ -86,16 +86,49 @@ input[type=submit] {
     clear:both;
     padding-left:10px; 
 }
+.comments-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #cc0033;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+hr {
+    border: 1px solid #6c6c6c;
+    height: 0;
+    width: 100%;
+}
 
 /* comments */
 .comment {
     padding:10px;
+    border: 1px solid #5336ff;
+    border-radius: 10px;
 }
-.comment:nth-child(even) {
-    background:#efefef;
-}
+
 .comment .info {
     font-weight:bold;
     font-size:12px;
     color:#666;
+}
+
+.add-comment form {
+    border: 1px solid #6c6c6c;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+/*.add-comment form p:nth-child(2) {*/
+/*    position: relative;*/
+/*    left: -196px;*/
+/*    top: 60px;*/
+/*}*/
+
+.add-comment form p:nth-child(5) {
+    position: relative;
+    top: 25px;
 }
