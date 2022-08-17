@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
 {% load static %}
+{% load blog_tags %}
 
 {% block title %}
     My Blog
@@ -25,7 +26,7 @@
             <p class="date">
                 Published {{ post.publish }} by {{ post.author }}
             </p>
-            {{ post.body|truncatewords:50|linebreaks }}
+            {{ post.body|markdown|truncatewords_html:20 }}
         </div>
     {% endfor %}
     {% include "blog/pagination.html" with page=posts %}
